@@ -10,8 +10,10 @@ class Footman < Unit
 	end
 
 	def attack!(target)
-		if target.is_a?(Barracks)
+		if target.is_a?(Building) && !target.is_dead?
 			target.damage(attack_power/2.ceil)
+		elsif !target.is_dead?
+			target.damage(attack_power)
 		end
 	end
 

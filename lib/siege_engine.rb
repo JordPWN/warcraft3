@@ -12,7 +12,7 @@ class SiegeEngine < Unit
 	if can_attack? && !target.is_dead?
 		if target.is_a?(SiegeEngine)
 			target.damage(attack_power)
-		elsif target.is_a?(Barracks)
+		elsif target.is_a?(Building)
 			target.damage(attack_power*2.ceil)
 		end
 	end
