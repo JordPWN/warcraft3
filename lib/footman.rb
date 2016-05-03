@@ -9,4 +9,10 @@ class Footman < Unit
 		super
 	end
 
+	def attack!(target)
+		if target.is_a?(Barracks)
+			target.damage(attack_power/2.ceil)
+		end
+	end
+
 end

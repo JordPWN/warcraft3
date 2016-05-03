@@ -12,7 +12,7 @@ class Unit
   public
 
   def can_attack?
-  	@attack_power > 0 ? true : false
+  	@attack_power > 0 && !is_dead? ? true : false
   end
 
   def damage(dmg)
@@ -20,9 +20,14 @@ class Unit
   end
 
   def attack!(target)
-  	if can_attack?
+  	if can_attack? && !target.is_dead?
   		target.damage(attack_power)
   	end
+    return false
+  end
+
+  def is_dead?
+    health_points > 0 ?  false : true
   end
 
 end
